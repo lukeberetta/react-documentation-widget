@@ -37,7 +37,7 @@ export function Sidebar() {
 
   return (
     <Container>
-      <NavLink activeClassName={"active"} exact to={"/"}><h3>API Docs</h3></NavLink>
+      <h3><NavLink activeClassName={"active"} exact to={"/"}>API Docs</NavLink></h3>
       <ul>
         {items.map(obj => {
           let res = obj.nested ?

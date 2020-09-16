@@ -1,10 +1,23 @@
-html {
-  box-sizing: border-box;
-  font-size: 16px;
+:root {
+  --blue: #1A80FF;
+  --background: #F5F6FB;
+  --light-grey: #E0E3ED;
 }
 
 *, *:before, *:after {
   box-sizing: inherit;
+}
+
+html {
+  cursor: default;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--background);
 }
 
 ol, ul {
@@ -34,9 +47,11 @@ a {
 }
 
 a:hover {
-  color: blue;
+  color: var(--blue);
 }
 
 .active {
-  color: blue;
+  color: var(--blue);
+  font-weight: bolder;
 }
+
