@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export function Sidebar() {
@@ -37,12 +37,12 @@ export function Sidebar() {
 
   return (
     <Container>
-      <Link to={"/"}><h3>API Docs</h3></Link>
+      <NavLink activeClassName={"active"} exact to={"/"}><h3>API Docs</h3></NavLink>
       <ul>
         {items.map(obj => {
           let res = obj.nested ?
-            <><li>{obj.title}</li><ul>{obj.nested.map(el => (<li><Link to={`/${el.endpoint}`}>{el.title}</Link></li>))}</ul></> :
-            <li><Link to={`/${obj.endpoint}`}>{obj.title}</Link></li>
+            <><li>{obj.title}</li><ul>{obj.nested.map(el => (<li><NavLink activeClassName={"active"} to={`/${el.endpoint}`}>{el.title}</NavLink></li>))}</ul></> :
+            <li><NavLink activeClassName={"active"} to={`/${obj.endpoint}`}>{obj.title}</NavLink></li>
           return res;
         })}
       </ul>
