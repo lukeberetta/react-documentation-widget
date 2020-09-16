@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export function Sidebar() {
-
   useEffect(() => {
     fetchItems();
   }, []);
@@ -13,6 +12,7 @@ export function Sidebar() {
   const fetchItems = async () => {
     const data = await fetch('https://api-rel.kurtosys.app/readme/routes');
     const items = await data.json();
+
     // Sort API Data
     let sortedItems = []
     Object.keys(items).forEach(function (key, index) {
@@ -52,6 +52,7 @@ export function Sidebar() {
 
 const Container = styled.div`
   padding: 24px;
-  width: 350px;
+  width: 260px;
   height: 100%;
+  font-size: 14px;
 `

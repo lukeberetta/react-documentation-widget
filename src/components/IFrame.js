@@ -1,29 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import styled from "styled-components";
 
 export function IFrame({ match }) {
   useEffect(() => {
-    fetchItem();
-  }, []);
+    fetchPage();
+  });
 
-  const [item, setItem] = useState({});
+  const [item, setItem] = useState();
 
-  const fetchItem = async () => {
-    const fetchedItem = await fetch(`https://api-uk.kurtosys.app/readme${match.url}`);
-    const item = await fetchedItem;
+  const fetchPage = async () => {
+    const fetchedPage = await fetch(`https://api-uk.kurtosys.app/readme${match.url}?plainstyles=true`);
+    const item = await fetchedPage.text();
     setItem(item);
   }
 
   return (
-    <Container>
-      <div style={iframeStyles} dangerouslySetInnerHTML={{ __html: `<iframe height="100%" style="width: 100%;" src="https://api-uk.kurtosys.app/readme/${match.params.endpoint ? match.params.endpoint : ""}?plainstyles=true" frameborder="no" allowtransparency="true" allowfullscreen="true"></iframe>` }} />
-    </Container>
+    <div style={iframeStyles} dangerouslySetInnerHTML={{ __html: item }} />
   );
 }
 
-const Container = styled.div`
-  height: 100vh;
-  width: 100%;
-`
-
-const iframeStyles = { width: `100%`, height: `100%` }
+const iframeStyles = {
+  width: `100%`, height: `100%`, overflow: 'scroll', padding: "24px"
+}
