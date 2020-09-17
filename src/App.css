@@ -27,6 +27,8 @@ body {
 ol,
 ul {
   list-style: none;
+  padding: 0 0 0 4px;
+  margin: 0;
 }
 
 pre {
@@ -36,10 +38,6 @@ pre {
 img {
   max-width: 100%;
   height: auto;
-}
-
-ul {
-  padding-inline-start: 16px;
 }
 
 li {
@@ -62,16 +60,22 @@ a:hover {
 
 pre {
   background: var(--slate);
-  color: var(--background);
+  color: var(--light-grey);
   page-break-inside: avoid;
   font-family: monospace;
   line-height: 1.6;
-  margin-bottom: 1.6em;
   max-width: 100%;
   overflow: auto;
   padding: 1.5em;
   display: block;
   word-wrap: break-word;
+  margin-top: 25px;
+  margin-left: -16px;
+  margin-right: -16px;
+  margin-bottom: 25px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 8px;
 }
 
 blockquote {
@@ -80,4 +84,15 @@ blockquote {
   font-style: italic;
   padding: 1.33em;
   text-align: left;
+}
+
+.logo {
+  color: var(--blue);
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+  font-size: 15px;
+}
+
+.menu {
+  margin-top: 20px;
 }

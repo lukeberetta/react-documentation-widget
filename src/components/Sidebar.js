@@ -11,12 +11,10 @@ export function Sidebar() {
 
   return (
     <Container>
-      <code>
-        <NavLink activeClassName={"active"} exact to={"/"}>
-          Kurtosys API
-        </NavLink>
-      </code>
-      <ul>
+      <NavLink className={"logo"} activeClassName={"active"} exact to={"/"}>
+        Kurtosys API
+      </NavLink>
+      <ul className={"menu"}>
         {routes.map((routes) => (
           <ul>
             <li>
@@ -43,7 +41,7 @@ export function Sidebar() {
 }
 
 const Container = styled.div`
-  padding: 24px;
+  padding: 32px 24px;
   width: 270px;
   height: 100%;
   font-size: 14px;
