@@ -13,7 +13,7 @@ export function Sidebar() {
     <Container>
       <code>
         <NavLink activeClassName={"active"} exact to={"/"}>
-          API Documentation
+          Kurtosys API
         </NavLink>
       </code>
       <ul>
