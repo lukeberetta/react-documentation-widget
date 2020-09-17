@@ -4,15 +4,24 @@ import { Main } from "./components/Main";
 import { Sidebar } from "./components/Sidebar";
 import { IFrame } from "./components/IFrame";
 import "./App.css";
+import getRoutes from "./utils/getRoutes";
 
 function App() {
+  const routes = getRoutes();
+
   return (
     <Router>
       <Main>
         <Sidebar />
         <Switch>
           <Route path="/" exact component={IFrame} />
-          <Route path="/:id" component={IFrame} />
+          {routes.map((r) => (
+            <Route
+              path={`/${r.path}`}
+              exact
+              render={() => <IFrame endpoint={r.endpoint} />}
+            />
+          ))}
         </Switch>
       </Main>
     </Router>

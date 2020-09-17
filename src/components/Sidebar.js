@@ -1,44 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import getRoutes from "../utils/getRoutes";
 
 export function Sidebar() {
-  useEffect(() => {
-    fetchRoutes();
-  }, []);
+  useEffect(() => {}, []);
 
-  const [routes, setRoutes] = useState([]);
-
-  const fetchRoutes = async () => {
-    const data = await fetch("https://api-rel.kurtosys.app/readme/routes");
-    const routes = await data.json();
-
-    // Sort API Data
-    let sortedRoutes = [];
-    Object.keys(routes).forEach(function (key, index) {
-      let title, endpoint, slug;
-      let nested = [];
-      title = key;
-      slug = key.toLowerCase().replace(/\s/g, "-");
-
-      if (typeof routes[key] === "object") {
-        Object.keys(routes[key]).forEach(function (key2, index2) {
-          nested.push({
-            title: key2,
-            endpoint: routes[key][key2],
-            slug: slug + "/" + key2.toLowerCase().replace(/\s/g, "-"),
-          });
-        });
-        endpoint = false;
-      } else {
-        endpoint = routes[key];
-        nested = false;
-      }
-      sortedRoutes.push({ title, endpoint, nested, slug });
-    });
-    console.log(sortedRoutes);
-    setRoutes(sortedRoutes);
-  };
+  const routes = getRoutes();
+  console.log(routes);
 
   return (
     <Container>
@@ -48,41 +17,26 @@ export function Sidebar() {
         </NavLink>
       </h3>
       <ul>
-        {routes.map((routes) => {
-          let res = routes.nested ? (
-            <>
-              <li>{routes.title}</li>
-              <ul>
-                {routes.nested.map((nestedRoutes) => (
-                  <li>
-                    <NavLink
-                      activeClassName={"active"}
-                      to={{
-                        pathname: `/${nestedRoutes.slug}`,
-                        props: { endpoint: nestedRoutes.endpoint },
-                      }}
-                    >
-                      {nestedRoutes.title}
-                    </NavLink>
-                  </li>
-                ))}
-              </ul>
-            </>
-          ) : (
+        {routes.map((routes) => (
+          <ul>
             <li>
-              <NavLink
-                activeClassName={"active"}
-                to={{
-                  pathname: `/${routes.slug}`,
-                  props: { endpoint: routes.endpoint },
-                }}
-              >
-                {routes.title}
-              </NavLink>
+              {routes.endpoint ? (
+                <NavLink
+                  activeClassName={"active"}
+                  exact
+                  to={{
+                    pathname: "/" + routes.path || "",
+                    props: { endpoint: routes.endpoint },
+                  }}
+                >
+                  {routes.title}
+                </NavLink>
+              ) : (
+                <NavHeader>{routes.title}</NavHeader>
+              )}
             </li>
-          );
-          return res;
-        })}
+          </ul>
+        ))}
       </ul>
     </Container>
   );
@@ -90,8 +44,15 @@ export function Sidebar() {
 
 const Container = styled.div`
   padding: 24px;
-  width: 260px;
+  width: 270px;
   height: 100%;
   font-size: 14px;
   position: fixed;
+  overflow-y: scroll;
+`;
+
+const NavHeader = styled.p`
+  padding: 0;
+  margin: 8px 0 4px -8px;
+  opacity: 0.5; ;
 `;

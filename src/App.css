@@ -1,10 +1,12 @@
 :root {
-  --blue: #1A80FF;
-  --background: #F5F6FB;
-  --light-grey: #E0E3ED;
+  --blue: #1a80ff;
+  --background: #f5f6fb;
+  --light-grey: #e0e3ed;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -20,7 +22,8 @@ body {
   background-color: var(--background);
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
@@ -52,6 +55,5 @@ a:hover {
 
 .active {
   color: var(--blue);
-  font-weight: bolder;
+  font-weight: bold;
 }
-
