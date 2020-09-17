@@ -11,11 +11,11 @@ export function Sidebar() {
 
   return (
     <Container>
-      <h3>
+      <code>
         <NavLink activeClassName={"active"} exact to={"/"}>
-          API Docs
+          API Documentation
         </NavLink>
-      </h3>
+      </code>
       <ul>
         {routes.map((routes) => (
           <ul>

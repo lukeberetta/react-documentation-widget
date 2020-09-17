@@ -2,6 +2,7 @@
   --blue: #1a80ff;
   --background: #f5f6fb;
   --light-grey: #e0e3ed;
+  --slate: #1b1e2a;
 }
 
 *,
@@ -16,6 +17,7 @@ html {
   box-sizing: border-box;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
+  color: var(--slate);
 }
 
 body {
@@ -50,10 +52,32 @@ a {
 }
 
 a:hover {
-  color: var(--blue);
+  text-decoration: underline;
 }
 
 .active {
   color: var(--blue);
-  font-weight: bold;
+  /* font-weight: bold; */
+}
+
+pre {
+  background: var(--slate);
+  color: var(--background);
+  page-break-inside: avoid;
+  font-family: monospace;
+  line-height: 1.6;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1.5em;
+  display: block;
+  word-wrap: break-word;
+}
+
+blockquote {
+  margin: 0;
+  border-left: 3px solid var(--blue);
+  font-style: italic;
+  padding: 1.33em;
+  text-align: left;
 }
