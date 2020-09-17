@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 export function IFrame({ match }) {
   useEffect(() => {
     fetchPage();
-  });
+  }, [match.url]);
 
   const [item, setItem] = useState();
 
@@ -11,6 +11,7 @@ export function IFrame({ match }) {
     const fetchedPage = await fetch(`https://api-uk.kurtosys.app/readme${match.url}?plainstyles=true`);
     const item = await fetchedPage.text();
     setItem(item);
+    window.scrollTo(0, 0);
   }
 
   return (
@@ -18,6 +19,8 @@ export function IFrame({ match }) {
   );
 }
 
+const leftNavigationWidth = '280px';
+
 const iframeStyles = {
-  width: `100%`, height: `100%`, overflow: 'scroll', padding: "24px"
+  width: `calc(95% - ${leftNavigationWidth})`, height: `100%`, padding: "24px", marginLeft: leftNavigationWidth
 }

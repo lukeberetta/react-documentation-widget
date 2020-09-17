@@ -55,4 +55,5 @@ const Container = styled.div`
   width: 260px;
   height: 100%;
   font-size: 14px;
+  position: fixed;
 `
