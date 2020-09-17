@@ -12,7 +12,7 @@ function App() {
         <Sidebar />
         <Switch>
           <Route path="/" exact component={IFrame} />
-          <Route path="/:endpoint" exact component={IFrame} />
+          <Route path="/:endpoint/:anotherroute" component={IFrame} />
         </Switch>
       </Main>
     </Router>
