@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 
-export function IFrame({ match }) {
+export function IFrame({ location }) {
   useEffect(() => {
     fetchPage();
-    console.log(match);
-  }, [match.url]);
+    getEndpoint();
+  }, [location]);
 
   const [page, setPage] = useState();
 
+  const getEndpoint = () => (location.props ? location.props.endpoint : "/");
+
   const fetchPage = async () => {
     const fetchedPage = await fetch(
-      `https://api-uk.kurtosys.app/readme${match.url}?plainstyles=true`
+      `https://api-uk.kurtosys.app/readme/${getEndpoint()}?plainstyles=true`
     );
     const html = await fetchedPage.text();
     setPage(html);

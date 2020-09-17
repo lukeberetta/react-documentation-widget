@@ -57,7 +57,10 @@ export function Sidebar() {
                   <li>
                     <NavLink
                       activeClassName={"active"}
-                      to={`/${nestedRoutes.endpoint}`}
+                      to={{
+                        pathname: `/${nestedRoutes.slug}`,
+                        props: { endpoint: nestedRoutes.endpoint },
+                      }}
                     >
                       {nestedRoutes.title}
                     </NavLink>
@@ -67,7 +70,13 @@ export function Sidebar() {
             </>
           ) : (
             <li>
-              <NavLink activeClassName={"active"} to={`/${routes.endpoint}`}>
+              <NavLink
+                activeClassName={"active"}
+                to={{
+                  pathname: `/${routes.slug}`,
+                  props: { endpoint: routes.endpoint },
+                }}
+              >
                 {routes.title}
               </NavLink>
             </li>
