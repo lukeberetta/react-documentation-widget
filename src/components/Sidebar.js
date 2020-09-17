@@ -1,48 +1,77 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export function Sidebar() {
   useEffect(() => {
-    fetchItems();
+    fetchRoutes();
   }, []);
 
-  const [items, setItems] = useState([]);
+  const [routes, setRoutes] = useState([]);
 
-  const fetchItems = async () => {
-    const data = await fetch('https://api-rel.kurtosys.app/readme/routes');
-    const items = await data.json();
+  const fetchRoutes = async () => {
+    const data = await fetch("https://api-rel.kurtosys.app/readme/routes");
+    const routes = await data.json();
 
     // Sort API Data
-    let sortedItems = []
-    Object.keys(items).forEach(function (key, index) {
-      let title, endpoint;
+    let sortedRoutes = [];
+    Object.keys(routes).forEach(function (key, index) {
+      let title, endpoint, slug;
       let nested = [];
       title = key;
+      slug = key.toLowerCase().replace(/\s/g, "-");
 
-      if (typeof items[key] === 'object') {
-        Object.keys(items[key]).forEach(function (key2, index2) {
-          nested.push({ title: key2, endpoint: items[key][key2] })
+      if (typeof routes[key] === "object") {
+        Object.keys(routes[key]).forEach(function (key2, index2) {
+          nested.push({
+            title: key2,
+            endpoint: routes[key][key2],
+            slug: slug + "/" + key2.toLowerCase().replace(/\s/g, "-"),
+          });
         });
         endpoint = false;
       } else {
-        endpoint = items[key];
+        endpoint = routes[key];
         nested = false;
-      };
-      sortedItems.push({ title, endpoint, nested })
+      }
+      sortedRoutes.push({ title, endpoint, nested, slug });
     });
-
-    setItems(sortedItems);
-  }
+    console.log(sortedRoutes);
+    setRoutes(sortedRoutes);
+  };
 
   return (
     <Container>
-      <h3><NavLink activeClassName={"active"} exact to={"/"}>API Docs</NavLink></h3>
+      <h3>
+        <NavLink activeClassName={"active"} exact to={"/"}>
+          API Docs
+        </NavLink>
+      </h3>
       <ul>
-        {items.map(obj => {
-          let res = obj.nested ?
-            <><li>{obj.title}</li><ul>{obj.nested.map(el => (<li><NavLink activeClassName={"active"} to={`/${el.endpoint}`}>{el.title}</NavLink></li>))}</ul></> :
-            <li><NavLink activeClassName={"active"} to={`/${obj.endpoint}`}>{obj.title}</NavLink></li>
+        {routes.map((routes) => {
+          let res = routes.nested ? (
+            <>
+              <li>{routes.title}</li>
+              <ul>
+                {routes.nested.map((nestedRoutes) => (
+                  <li>
+                    <NavLink
+                      activeClassName={"active"}
+                      to={`/${nestedRoutes.endpoint}`}
+                    >
+                      {nestedRoutes.title}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : (
+            <li>
+              <NavLink activeClassName={"active"} to={`/${routes.endpoint}`}>
+                {routes.title}
+              </NavLink>
+            </li>
+          );
           return res;
         })}
       </ul>
@@ -56,4 +85,4 @@ const Container = styled.div`
   height: 100%;
   font-size: 14px;
   position: fixed;
-`
+`;
