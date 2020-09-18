@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from "react";
 import "../Markdown.css";
 
-export function IFrame(props) {
+export function Content(props) {
   useEffect(() => {
+    // Fetch raw page
+    const fetchPage = async () => {
+      let path = props.endpoint || "";
+      const fetchedPage = await fetch(
+        `https://api-uk.kurtosys.app/readme/${path}?plainstyles=true`
+      );
+      const html = await fetchedPage.text();
+      setPage(html);
+      window.scrollTo(0, 0);
+    };
     fetchPage();
-    console.log(props);
   }, [props]);
 
   const [page, setPage] = useState();
-
-  const fetchPage = async () => {
-    let path = props.endpoint || "";
-    const fetchedPage = await fetch(
-      `https://api-uk.kurtosys.app/readme/${path}?plainstyles=true`
-    );
-    const html = await fetchedPage.text();
-    setPage(html);
-    window.scrollTo(0, 0);
-  };
 
   return (
     <div
@@ -28,11 +27,11 @@ export function IFrame(props) {
   );
 }
 
-const leftNavigationWidth = "280px";
+const leftNavigationWidth = "300px";
 
 const iframeStyles = {
   width: `calc(95% - ${leftNavigationWidth})`,
   height: `100%`,
-  padding: "24px",
+  padding: "48px",
   marginLeft: leftNavigationWidth,
 };

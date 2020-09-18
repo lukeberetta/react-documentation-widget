@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import getRoutes from "../utils/getRoutes";
+import { ReactComponent as Logomark } from "../assets/logomark.svg";
 
-export function Sidebar() {
-  useEffect(() => {}, []);
-
+export function Navigation() {
   const routes = getRoutes();
-  console.log(routes);
 
   return (
     <Container>
       <NavLink className={"logo"} activeClassName={"active"} exact to={"/"}>
-        Kurtosys API
+        <Logomark className={"logomark"} />
+        <p>Kurtosys API</p>
       </NavLink>
-      <ul className={"menu"}>
+      <ul>
         {routes.map((routes) => (
           <ul>
             <li>
@@ -41,17 +40,17 @@ export function Sidebar() {
 }
 
 const Container = styled.div`
-  padding: 32px 24px;
-  width: 270px;
+  padding: 24px 32px;
+  width: 300px;
   height: 100%;
-  font-size: 14px;
   position: fixed;
   overflow-y: scroll;
+  border-right: 1px solid var(--grey-light);
 `;
 
 const NavHeader = styled.p`
   padding: 0;
-  margin: 16px 0 4px -4px;
+  margin: 18px 0 4px -4px;
   opacity: 0.6;
   text-transform: uppercase;
   font-size: 13px;

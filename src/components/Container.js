@@ -1,7 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 
-export const Main = styled.div`
+export const Container = styled.div`
   display: flex;
   width: 100vw;
 `;

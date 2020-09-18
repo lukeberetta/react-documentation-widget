@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Main } from "./components/Main";
-import { Sidebar } from "./components/Sidebar";
-import { IFrame } from "./components/IFrame";
+import { Container } from "./components/Container";
+import { Navigation } from "./components/Navigation";
+import { Content } from "./components/Content";
 import "./App.css";
 import getRoutes from "./utils/getRoutes";
 
@@ -11,19 +11,19 @@ function App() {
 
   return (
     <Router>
-      <Main>
-        <Sidebar />
+      <Container>
+        <Navigation />
         <Switch>
-          <Route path="/" exact component={IFrame} />
-          {routes.map((r) => (
+          <Route path="/" exact component={Content} />
+          {routes.map((route) => (
             <Route
-              path={`/${r.path}`}
+              path={`/${route.path}`}
               exact
-              render={() => <IFrame endpoint={r.endpoint} />}
+              render={() => <Content endpoint={route.endpoint} />}
             />
           ))}
         </Switch>
-      </Main>
+      </Container>
     </Router>
   );
 }

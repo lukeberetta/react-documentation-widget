@@ -1,7 +1,9 @@
 :root {
   --blue: #1a80ff;
+  --green: #00d179;
   --background: #f5f6fb;
-  --light-grey: #e0e3ed;
+  --grey-light: #e0e3ed;
+  --grey-medium: #c3c9d9;
   --slate: #1b1e2a;
 }
 
@@ -15,7 +17,7 @@ html {
   cursor: default;
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
-  font-size: 14px;
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   color: var(--slate);
 }
@@ -46,7 +48,7 @@ img {
 }
 
 li {
-  padding: 4px 0;
+  padding: 3px 0;
 }
 
 a {
@@ -67,9 +69,12 @@ a:hover {
   color: var(--blue);
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-  font-size: 15px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
 }
 
-.menu {
-  margin-top: 20px;
+.logomark {
+  margin: -2px 10px 0 0;
+  border-radius: 8px;
 }

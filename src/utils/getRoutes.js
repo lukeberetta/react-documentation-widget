@@ -78,3 +78,34 @@ export default function getRoutes() {
   }
   return routes;
 }
+
+// const fetchRoutes = async () => {
+//   const data = await fetch("https://api-rel.kurtosys.app/readme/routes");
+//   const routes = await data.json();
+
+//   // Sort API Data
+//   let sortedRoutes = [];
+//   Object.keys(routes).forEach(function (key, index) {
+//     let title, endpoint, slug;
+//     let nested = [];
+//     title = key;
+//     slug = key.toLowerCase().replace(/\s/g, "-");
+
+//     if (typeof routes[key] === "object") {
+//       Object.keys(routes[key]).forEach(function (key2, index2) {
+//         nested.push({
+//           title: key2,
+//           endpoint: routes[key][key2],
+//           slug: slug + "/" + key2.toLowerCase().replace(/\s/g, "-"),
+//         });
+//       });
+//       endpoint = false;
+//     } else {
+//       endpoint = routes[key];
+//       nested = false;
+//     }
+//     sortedRoutes.push({ title, endpoint, nested, slug });
+//   });
+//   console.log(sortedRoutes);
+//   setRoutes(sortedRoutes);
+// };
