@@ -21,7 +21,7 @@ html {
 }
 
 body {
-  background-color: var(--background);
+  background-color: white;
 }
 
 ol,
@@ -29,6 +29,11 @@ ul {
   list-style: none;
   padding: 0 0 0 4px;
   margin: 0;
+}
+
+hr {
+  opacity: 0.2;
+  margin: 40px 0;
 }
 
 pre {
@@ -56,34 +61,6 @@ a:hover {
 .active {
   color: var(--blue);
   /* font-weight: bold; */
-}
-
-pre {
-  background: var(--slate);
-  color: var(--light-grey);
-  page-break-inside: avoid;
-  font-family: monospace;
-  line-height: 1.6;
-  max-width: 100%;
-  overflow: auto;
-  padding: 1.5em;
-  display: block;
-  word-wrap: break-word;
-  margin-top: 25px;
-  margin-left: -16px;
-  margin-right: -16px;
-  margin-bottom: 25px;
-  padding-left: 15px;
-  padding-right: 15px;
-  border-radius: 8px;
-}
-
-blockquote {
-  margin: 0;
-  border-left: 3px solid var(--blue);
-  font-style: italic;
-  padding: 1.33em;
-  text-align: left;
 }
 
 .logo {

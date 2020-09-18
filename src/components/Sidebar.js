@@ -51,6 +51,9 @@ const Container = styled.div`
 
 const NavHeader = styled.p`
   padding: 0;
-  margin: 8px 0 4px -8px;
-  opacity: 0.5; ;
+  margin: 16px 0 4px -4px;
+  opacity: 0.6;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.5px;
 `;

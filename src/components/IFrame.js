@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../Markdown.css";
 
 export function IFrame(props) {
   useEffect(() => {
@@ -19,7 +20,11 @@ export function IFrame(props) {
   };
 
   return (
-    <div style={iframeStyles} dangerouslySetInnerHTML={{ __html: page }} />
+    <div
+      className={"markdown-body"}
+      style={iframeStyles}
+      dangerouslySetInnerHTML={{ __html: page }}
+    />
   );
 }
 
