@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import getRoutes from "../utils/getRoutes";
+import { getRoutes } from "../utils";
 import { ReactComponent as Logomark } from "../assets/logomark.svg";
 
 export function Navigation() {
-  const routes = getRoutes();
+  const [routes, setRoutes] = useState([]);
+
+  useEffect(() => {
+    getRoutes(setRoutes);
+  }, []);
 
   return (
     <Container>

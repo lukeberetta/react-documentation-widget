@@ -62,7 +62,6 @@ a:hover {
 
 .active {
   color: var(--blue);
-  /* font-weight: bold; */
 }
 
 .logo {
