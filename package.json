@@ -14,7 +14,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run clean:build && npm run build:nosplit",
+    "build:nosplit": "node ./scripts/build.js",
+    "build:default": "react-scripts build",
+    "clean:build": "rm -rf ./build/*",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
