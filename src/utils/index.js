@@ -1,7 +1,9 @@
-export async function getRoutes(setFunction) {
+import { url } from "../config";
+
+export async function getRoutes(setRoutes) {
   const routes = [];
 
-  fetch("https://api-rel.kurtosys.app/readme/routes")
+  fetch(`${url}routes`)
     .then((results) => results.json())
     .then((data) => {
       for (let k of Object.keys(data)) {
@@ -26,6 +28,6 @@ export async function getRoutes(setFunction) {
           }
         }
       }
-      setFunction(routes);
+      setRoutes(routes);
     });
 }

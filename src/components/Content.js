@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { url } from "../config";
 import "../Markdown.css";
 
 export function Content(props) {
@@ -6,9 +7,7 @@ export function Content(props) {
     // Fetch raw page
     const fetchPage = async () => {
       let path = props.endpoint || "";
-      const fetchedPage = await fetch(
-        `https://api-uk.kurtosys.app/readme/${path}?plainstyles=true`
-      );
+      const fetchedPage = await fetch(`${url + path}?plainstyles=true`);
       const html = await fetchedPage.text();
       setPage(html);
       window.scrollTo(0, 0);
