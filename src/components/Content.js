@@ -26,11 +26,9 @@ export function Content(props) {
   );
 }
 
-const leftNavigationWidth = "300px";
-
 const iframeStyles = {
-  width: `calc(95% - ${leftNavigationWidth})`,
-  height: `100%`,
-  padding: "48px",
-  marginLeft: leftNavigationWidth,
+  width: "100%",
+  padding: "40px",
+  paddingRight: "24px",
+  overflow: "scroll",
 };

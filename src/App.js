@@ -14,11 +14,10 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    <Router basename="/api-documentation">
       <Container>
         <Navigation />
         <Switch>
-          <Route path="/" exact component={Content} />
           {routes.map((route) => (
             <Route
               path={`/${route.path}`}
@@ -26,6 +25,7 @@ function App() {
               render={() => <Content endpoint={route.endpoint} />}
             />
           ))}
+          <Route path="/" component={Content} />
         </Switch>
       </Container>
     </Router>
