@@ -7,75 +7,39 @@
   --slate: #1b1e2a;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
-html {
-  cursor: default;
-  -webkit-tap-highlight-color: transparent;
-  box-sizing: border-box;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  color: var(--slate);
-}
-
-body {
-  background-color: white;
-}
-
-ol,
-ul {
+.api-docs ol,
+.api-docs ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-hr {
+.api-docs hr {
   opacity: 0.2;
   margin: 40px 0;
 }
 
-pre {
+.api-docs pre {
   overflow: scroll;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-li {
+.api-docs li {
   padding: 3px 0;
 }
 
-a {
+.api-docs a {
   color: inherit;
   text-decoration: inherit;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
-.active {
+.api-docs .active {
   color: var(--blue);
 }
 
-.logo {
-  color: var(--blue);
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 6px;
+.api-docs .left-panel {
+  width: 280px;
 }
 
-.logomark {
-  margin: -1px 6px 0 -3px;
-  border-radius: 8px;
-  transform: scale(0.8);
+.api-docs .right-panel {
+  width: 100%;
 }

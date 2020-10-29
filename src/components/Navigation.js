@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { getRoutes } from "../utils";
-import { ReactComponent as Logomark } from "../assets/logomark.svg";
-
 export function Navigation() {
   const [routes, setRoutes] = useState([]);
 
@@ -12,11 +10,7 @@ export function Navigation() {
   }, []);
 
   return (
-    <Container>
-      <NavLink className={"logo"} activeClassName={"active"} exact to={"/"}>
-        <Logomark className={"logomark"} />
-        Kurtosys API
-      </NavLink>
+    <Container className={"left-panel"}>
       <ul>
         {routes.map((routes) => (
           <ul>
@@ -44,8 +38,7 @@ export function Navigation() {
 }
 
 const Container = styled.div`
-  padding: 24px 24px 24px 0;
-  min-width: 240px;
+  padding: 0 24px 24px 0;
   max-height: 100vh;
   font-size: 14px;
   position: -webkit-sticky;
@@ -54,11 +47,8 @@ const Container = styled.div`
   overflow: auto;
 `;
 
-const NavHeader = styled.p`
+const NavHeader = styled.h6`
   padding: 0;
   margin: 16px 0 4px;
   opacity: 0.6;
-  text-transform: uppercase;
-  font-size: 11px;
-  letter-spacing: 0.5px;
 `;

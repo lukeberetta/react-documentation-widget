@@ -17,7 +17,7 @@ function App(props) {
 
   return (
     <Router basename={basename}>
-      <Container>
+      <Container className={"api-docs"}>
         <Navigation />
         <Switch>
           {routes.map((route) => (

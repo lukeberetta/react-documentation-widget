@@ -19,7 +19,7 @@ export function Content(props) {
 
   return (
     <div
-      className={"markdown-body"}
+      className={"markdown-body right-panel"}
       style={iframeStyles}
       dangerouslySetInnerHTML={{ __html: page }}
     />
@@ -27,7 +27,6 @@ export function Content(props) {
 }
 
 const iframeStyles = {
-  width: "100%",
   padding: "40px",
   paddingRight: "24px",
   overflow: "scroll",
