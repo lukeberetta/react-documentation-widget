@@ -5,6 +5,7 @@ import { Navigation } from "./components/Navigation";
 import { Content } from "./components/Content";
 import "./App.css";
 import { getRoutes } from "./utils";
+import { MobileNavigation } from "./components/MobileNavigation";
 
 function App(props) {
   const [routes, setRoutes] = useState([]);
@@ -17,8 +18,9 @@ function App(props) {
 
   return (
     <Router basename={basename}>
-      <Container className={"api-docs"}>
+      <Container className={"app-docs"}>
         <Navigation />
+        <MobileNavigation />
         <Switch>
           {routes.map((route) => (
             <Route

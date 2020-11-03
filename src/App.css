@@ -1,45 +1,110 @@
 :root {
   --blue: #1a80ff;
+  --blue-light: #e2f2ff;
   --green: #00d179;
   --background: #f5f6fb;
   --grey-light: #e0e3ed;
   --grey-medium: #c3c9d9;
   --slate: #1b1e2a;
+  --slate-background: #ecedf6;
 }
 
-.api-docs ol,
-.api-docs ul {
+.app-docs {
+  display: flex;
+}
+
+.app-docs ol,
+.app-docs ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.api-docs hr {
+.app-docs hr {
   opacity: 0.2;
   margin: 40px 0;
 }
 
-.api-docs pre {
+.app-docs pre {
   overflow: scroll;
 }
 
-.api-docs li {
+.app-docs li {
   padding: 3px 0;
 }
 
-.api-docs a {
+.app-docs a {
   color: inherit;
   text-decoration: inherit;
 }
 
-.api-docs .active {
+.app-docs .active {
   color: var(--blue);
 }
 
-.api-docs .left-panel {
-  width: 280px;
+.left-panel {
+  width: 27%;
+}
+.right-panel {
+  width: 100%;
+  padding: 40px;
+  padding-right: 24px;
+  overflow: scroll;
 }
 
-.api-docs .right-panel {
-  width: 100%;
+.mobile-navigation {
+  display: none;
+  margin: 8px 0 32px;
+  font-size: 14px;
+  background: var(--slate-background);
+  color: var(--slate);
+  border-radius: 3px;
+}
+
+.mobile-navigation-inner {
+  padding: 16px;
+}
+
+#navigation-title {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  line-height: 28px;
+}
+
+#navigation-links {
+  margin-left: 16px;
+  padding: 4px;
+}
+
+.Collapsible {
+  padding: 0;
+}
+
+.Collapsible__trigger {
+  padding: 6px;
+  display: block;
+}
+
+.Collapsible__contentInner {
+}
+
+/* Responsive */
+
+@media (max-width: 767.98px) {
+  .app-docs {
+    flex-direction: column;
+  }
+
+  .navigation {
+    display: none;
+  }
+  .mobile-navigation {
+    display: block;
+  }
+
+  .right-panel {
+    max-width: 100%;
+    padding: 0;
+  }
 }

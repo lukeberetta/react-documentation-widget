@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { getRoutes } from "../utils";
+
 export function Navigation() {
   const [routes, setRoutes] = useState([]);
 
@@ -10,7 +11,7 @@ export function Navigation() {
   }, []);
 
   return (
-    <Container className={"left-panel"}>
+    <Container className={"left-panel navigation"}>
       <ul>
         {routes.map((routes) => (
           <ul>
@@ -38,17 +39,18 @@ export function Navigation() {
 }
 
 const Container = styled.div`
-  padding: 0 24px 24px 0;
   max-height: 100vh;
   font-size: 14px;
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
+  top: 70px;
   overflow: auto;
+  margin-bottom: 40px;
 `;
 
-const NavHeader = styled.h6`
+const NavHeader = styled.p`
   padding: 0;
-  margin: 16px 0 4px;
-  opacity: 0.6;
+  margin: 14px 0 3px;
+  color: #b0b8cb;
+  font-size: 13px;
 `;

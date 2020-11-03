@@ -506,3 +506,15 @@ blockquote {
   margin: 0 0.2em 0.25em -1.6em;
   vertical-align: middle;
 }
+
+/* Responsive */
+
+@media (max-width: 767.98px) {
+  .markdown-body pre {
+    margin: 24px 0;
+  }
+  .markdown-body img {
+    padding: 0;
+    margin: 24px 0;
+  }
+}
