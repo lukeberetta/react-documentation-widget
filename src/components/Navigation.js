@@ -39,13 +39,13 @@ export function Navigation() {
 }
 
 const Container = styled.div`
-  max-height: 100vh;
+  max-height: calc(100vh - 70px);
   font-size: 14px;
   position: -webkit-sticky;
   position: sticky;
   top: 70px;
   overflow: auto;
-  margin-bottom: 40px;
+  padding-bottom: 40px;
 `;
 
 const NavHeader = styled.p`

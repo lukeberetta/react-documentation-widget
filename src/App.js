@@ -9,7 +9,7 @@ import { MobileNavigation } from "./components/MobileNavigation";
 
 function App(props) {
   const [routes, setRoutes] = useState([]);
-  const { basename = "/api-documentation", hashrouter = false } = props;
+  const { basename = "/api-documentation", hashrouter = true } = props;
   const Router = hashrouter ? HashRouter : BrowserRouter;
 
   useEffect(() => {
