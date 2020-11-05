@@ -17,7 +17,7 @@ function App(props) {
   }, []);
 
   return (
-    <Router basename={basename}>
+    <Router basename={hashrouter ? null : basename}>
       <Container className={"app-docs"}>
         <Navigation />
         <MobileNavigation />
