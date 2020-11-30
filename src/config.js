@@ -1,1 +1,1 @@
-export const url = "https://api-rel.kurtosys.app/readme/";
+export const url = "https://api-uk.kurtosys.app/readme/";
