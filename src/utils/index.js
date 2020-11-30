@@ -29,6 +29,5 @@ export async function getRoutes(setRoutes) {
         }
       }
       setRoutes(routes);
-      console.log(routes);
     });
 }
